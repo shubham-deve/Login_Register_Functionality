@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en"  xmlns:th="http://www.thymeleaf.org" th:replace="Navbar::Layout(~{::form})" >
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+
+<form th:action="@{/logging}" method="post" action="#" >
+    <h3> Login Here </h3>
+    <span th:text="${Msg}" class="error"></span>
+    <div class="form-control">
+        <label for="Username">Username</label>
+        <input type="email" name="email"  placeholder="Enter Your email " required >
+    </div>
+    <div class="form-control">
+        <label for="password">password</label>
+        <input type="password" name="password"  placeholder="Enter Your password " required >
+    </div>
+    <div class="form-control button">
+        <button type="submit"> Login </button>
+    </div></form>
+</body>
+</html>

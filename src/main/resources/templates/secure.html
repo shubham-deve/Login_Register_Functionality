@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+
+        .main{
+        margin:auto;
+        border:2px solid green;
+        width:400px;
+        padding:20px;
+        text-align:center;
+        }
+        a{
+        text-decoration:none;
+        float:right;
+        }
+       a button
+        {
+         cursor:pointer;
+        width:100%;
+        padding:6px 10px;
+        background-color:red;
+        color:white;
+        font-size:17px;
+        border:2px solid green;
+        }
+        .main span{
+        background-color:blue;
+        padding:10px;
+        font-size:18px;
+        margin-left:10px;
+        }
+
+
+    </style>
+</head>
+<body>
+<div class="main">
+    Welcome <span th:text="${user.getUsername()}"></span>
+    <p th:text="${user.getEmail()}">  </p>
+    <a href="/logout"><button>Logout</button></a>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="Navbar::Layout(~{::nav})"  >
+<head>
+    <meta charset="UTF-8">
+    <title>Register </title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+<nav>
+<form action="#" th:action="@{/register-user}" th:object="${user}" th:method="post">
+    <h1>Register  </h1>
+<!--    <div th:if="${session}" style="margin:0px; padding:0px; text-align:center;" >-->
+<!--        <h3 th:text="${session.msg}" style="color:red"></h3>-->
+<!-- <th:block th:text="${#session.removeAttribute('msg')}"> </th:block>-->
+<!--    </div>-->
+<p th:text="${msg}" class="error" ></p>
+
+    <div class="form-control">
+        <label for="username">Name</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <input type="text" name="username" th:field="*{username}" placeholder="Enter Your name "  >
+        <p th:if="${#fields.hasErrors('username')}" th:errors="*{username}" th:errorClass="error">Name Error</p>
+    </div>
+    <div class="form-control">
+        <label for="email">Email</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <input type="email" name="email" placeholder="Enter Your mail "th:field="*{email}"  >
+        <p th:if="${#fields.hasErrors('email')}" th:errors="*{email}" th:errorClass="error">Email Error</p>
+    </div>
+    <div class="form-control">
+        <label for="password">password</label>
+        <input type="password" name="password" placeholder="Enter Your password "  th:field="*{password}" >
+    </div>
+    <div class="form-control button">
+      <button type="submit"> Register </button>
+    </div>
+</form>
+    <div class="instruction" >
+        <h3>Note</h3>
+        <ul>
+            <li>Name should be greater than 4 character</li>
+            <li>Proper Email</li>
+            <li>Password should atleast contain one UpperCase, one lowercase, and special character </li>
+        </ul>
+    </div>
+</nav>
+
+</body>
+</html>
